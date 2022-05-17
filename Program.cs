@@ -16,9 +16,9 @@ for (int i = 0; i < randomArray.GetLength(0); i++)
         randomArray[i, j] = Math.Round(randomNum, precision);
     }
 }
-printArray(randomArray);
+PrintArray(randomArray);
 
-void printArray(double[,] array)
+void PrintArray(double[,] array)
 {
     for (int i = 0; i < array.GetLength(0); i++)
     {
