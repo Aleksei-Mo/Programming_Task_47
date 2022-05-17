@@ -1,24 +1,19 @@
 ﻿// Task 47. Задайте двумерный массив размером m x n , заполненны случайными вещественными числами.
 Console.Clear();
 Console.WriteLine("This program generates an array m x n and fills it up with float numbers.");
-Console.Write("Enter number of columns: ");
-int numberCol = Convert.ToInt32(Console.ReadLine());
-Console.Write("Enter number of rows: ");
-int numberRow = Convert.ToInt32(Console.ReadLine());
-Console.Write("Enter lower limit for random range: ");
-int lowerLim = Convert.ToInt32(Console.ReadLine());
-Console.Write("Enter upper limit for random range: ");
-int upperLim = Convert.ToInt32(Console.ReadLine());
-Console.Write("Enter precision for numbers: ");
-int precision = Convert.ToInt32(Console.ReadLine());
-double[,] randomArray = new double[numberCol, numberRow];
+int numberRow = EnterUserData("Enter number of rows:");
+int numberCol = EnterUserData("Enter number of columns:");
+int lowerLim = EnterUserData("Enter lower limit for random range:");
+int upperLim = EnterUserData("Enter upper limit for random range:");
+int precision = EnterUserData("Enter precision for numbers: ");
+double[,] randomArray = new double[numberRow, numberCol];
 
 for (int i = 0; i < randomArray.GetLength(0); i++)
 {
     for (int j = 0; j < randomArray.GetLength(1); j++)
     {
-        double randomNum = new Random().NextDouble()* (upperLim - lowerLim);
-        randomArray[i, j] = Math.Round(randomNum,precision);
+        double randomNum = new Random().NextDouble() * (upperLim - lowerLim);
+        randomArray[i, j] = Math.Round(randomNum, precision);
     }
 }
 printArray(randomArray);
@@ -33,4 +28,10 @@ void printArray(double[,] array)
         }
         Console.WriteLine();
     }
+}
+
+int EnterUserData(string nameUserData)
+{
+    Console.Write($"{nameUserData}");
+    return Convert.ToInt32(Console.ReadLine());
 }
